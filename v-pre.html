@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diretivas v-pre</title>
+    </head>
+    <body>
+        <div id="directivas">
+            
+            <h2 v-pre>{{ message }}</h2>
+
+            <p v-on:click="alert('Hello World')" v-pre>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam sed libero vitae laboriosam repudiandae. Molestias modi ullam itaque, enim quibusdam tenetur officia, quidem, dicta sit consequuntur facilis laudantium reiciendis iusto.</p>
+
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+        <script>
+
+            let app = new Vue({
+                el:'#directivas',
+                data:{
+                    message: 'Hcode Treinamentos'
+                }
+            })
+
+        </script>
+        
+    </body>
+</html>

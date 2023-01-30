@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diretivas personalizadas</title>
+    </head>
+    <body>
+        <div id="directivas">
+            
+            <h4 v-upper>{{name}}</h4>
+
+            <!-- <h2 v-captalize>hello world {{name}}</h2> -->
+
+            <h2 v-custom="{direction: argumento, distance}">{{name}}</h2>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+        <script>
+            //CRIAÇÃO DE DIRETIVA GLOBAL
+            Vue.directive('upper', {
+                inserted(el){
+                    el.innerText = el.innerText.toUpperCase();
+                }
+            })
+
+            function setDirection(element, binding){
+
+                element.style.margin = 0;
+                let direction = binding.value.direction.toLowerCase();
+                let value = binding.value.distance;
+
+                switch(direction){
+
+                    case 'left':
+                    case 'right':
+                    case 'bottom':
+                    case 'top':
+                        let  newDirection = direction.charAt(0).toUpperCase() + direction.slice(1);
+                        eval(`element.style.margin${newDirection} = value + 'px'`);
+                    break;
+                    default:
+                        console.error('Informe uma opção correta');
+
+                }
+                console.log(element, binding);
+
+            }
+
+                let app = new Vue({
+                el:'#directivas',
+                data:{
+                    name:'Han solo',
+                    argumento: 'left',
+                    distance: 150
+                },
+                directives:{
+                    // captalize:{
+                        /* FUNÇÕES PARA DIRETIVAS
+                        bind(element){
+                            console.log('BIND - fui vinculado a um elemento');
+
+                        },
+                        inserted(element){
+                            console.log("INSERTED- o elemento foi inserido na página");
+
+                            let words = element.innerText.split(' ');
+                        words.forEach((text,index) =>{
+                            words[index] = text.charAt(0).toUpperCase() + text.slice(1)
+                        });
+                        element.innerText = words.join(' '); 
+
+                        },
+                        update(element){
+                            console.log("UPDATE - quando o elemento foi atualizado");  
+                        },
+                        unbind(element){
+                            console.log('UNBID - o elemento foi desvinculado');
+                        },
+                        componentUpdated(element) {
+                            console.log('COMPONENTUPDATE - o componente foi atualizado');
+                        }
+                        
+                    },
+                    */
+                    custom:{
+                        // inserted(element, binding, vnode){
+                        //     //console.log(vnode);
+
+                        //     element.style.color = 'red';
+                        // },
+                        // update(element, binding, vnode, oldvnode){
+                        //     console.log(vnode,oldvnode);
+                        //     element.style.textDecoration = 'underline';
+                        // }
+                        bind(element,binding,vnode){
+                            setDirection(element,binding);
+                        },
+                        update(element, binding,vnode, oldvnode){
+
+                            setDirection(element,binding);
+                        }
+                    }
+                }
+            })
+
+        </script>
+        
+    </body>
+</html>

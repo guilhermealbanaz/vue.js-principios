@@ -1,0 +1,24 @@
+{
+  "name": "curso-hcode-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilhermealbanaz/vue.js-principios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guilhermealbanaz/vue.js-principios/issues"
+  },
+  "homepage": "https://github.com/guilhermealbanaz/vue.js-principios#readme",
+  "dependencies": {
+    "animate.css": "3.7",
+    "bootstrap": "4.0"
+  }
+}

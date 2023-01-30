@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animação CSS Personalizadas</title>
+        <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+        
+    </head>
+    <body>
+        <div id="transition">
+
+            <transition name='animation-first'
+            enter-active-class='animated fadeInLeft'
+            leave-active-class='animated rotateOut'>
+            <h2 v-if='show'>
+                Hcode treinamentos Animações
+            </h2>
+            </transition>
+
+            <button @click='show= !show'>Realizar a animação</button>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+        <script>
+                let app = new Vue({
+                el:'#transition',
+                data:{
+                    show: true,
+                },
+                
+            })
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Diretivas v-bind</title>
+    </head>
+    <body>
+        <div id="directivas">
+            
+            <h2>Acesse o site abaixo</h2>
+
+            <a v-bind:href="url">Site da Hcode</a>
+
+            <p  :[arg]='value'>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Magnam modi non nesciunt molestiae earum suscipit incidunt 
+                sit atque voluptates et laudantium quidem, minus dolore quod 
+                aperiam dolores accusamus quia error?</p>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue2-filters/dist/vue2-filters.min.js"></script>
+
+        <script>
+            let app = new Vue({
+                el:'#directivas',
+                data:{
+                    url:'https://www.hcode.com.br',
+                    arg:'title', //atributo a ser moldado
+                    value:'parágrafo de exemplo' // descrição do atributo
+                }
+            })
+
+        </script>
+        
+    </body>
+</html>

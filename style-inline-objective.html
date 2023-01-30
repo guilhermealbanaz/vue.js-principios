@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estilos em linha - Objeto</title>
+    </head>
+    <body>
+        <div id="styles">
+            
+            <input type="text" placeholder='Digite o tamanho da fonte' v-model='fontSizeProp'>
+
+            <h2 :style="{fontSize: fontSizeProp +'px'}">Evan You</h2>
+
+            <hr>
+             
+            <h2>Digite o valor de cada cor nos campos abaixo</h2>
+
+            <input type="text" placeholder="vermelho" v-model='styleRed'>
+            <input type="text" placeholder="azul" v-model='styleBlue'>
+            <input type="text" placeholder="verde" v-model='styleGreen'>
+
+
+            <div :style='styleRgb'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quas architecto delectus non, autem enim doloremque, ad, laboriosam libero animi optio praesentium dignissimos natus. Aliquid quod quidem exercitationem officiis deleniti.</div>
+
+            <hr>
+
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+        <script>
+                let app = new Vue({
+                el:'#styles',
+                data:{
+                    fontSizeProp: 20,
+                    styleRed: 255,
+                    styleGreen: 105,
+                    styleBlue: 80,
+                },
+                computed:{
+                    styleRgb(){
+                        return {color: `rgb(${this.styleRed}, ${this.styleBlue}, ${this.styleGreen})`};
+                    }
+                }
+            })
+        </script>
+        
+    </body>
+</html>
